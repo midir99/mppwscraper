@@ -9,10 +9,7 @@ MAX_RECORDS = 15
 WSCRAPPERS = [
     (
         "mx_mor_amber",
-        partial(
-            ws.mor.amber.run_ws,
-            wsid="mx_mor_amber",
-        ),
+        partial(ws.mor.amber.run_ws, wsid="mx_mor_amber", max_records=MAX_RECORDS),
     ),
     (
         "mx_mor_custom",

@@ -35,7 +35,7 @@ def lambda_handler(event, context):
                 )
             else:
                 logging.info("Creating %s", mpp.mp_name)
-                create_mpp(mpp, "bd50151147ead0f9acf06c34ff1c83637442aa40")
+                create_mpp(mpp, settings["MISSINGS_API"]["token"])
 
     logging.info("Lambda execution terminated")
 

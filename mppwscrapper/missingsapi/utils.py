@@ -8,9 +8,7 @@ import urllib.request
 
 import ws.mpp
 
-# BASE_URL = "http://extraviados.mx/api/v1/mpps"
-BASE_URL = "http://localhost:8000/api/v1/mpps"
-
+BASE_URL = "http://extraviados.mx/api/v1/mpps"
 
 class CustomJSONEncoder(json.JSONEncoder):
     def default(self, obj):
