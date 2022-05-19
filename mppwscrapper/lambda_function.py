@@ -1,15 +1,8 @@
 import logging
 
 from config import settings
-from missingsapi.utils import count_mpps_by_post_url, create_mpp
+from missingsapi.utils import count_mpps_by_post_url, create_mpp, update_counter
 from ws import runner
-
-# def lambda_handler(event, context):
-#     # TODO implement
-#     return {
-#         'statusCode': 200,
-#         'body': json.dumps('Hello from Lambda!')
-#     }
 
 
 def setup_logging():
@@ -37,6 +30,8 @@ def lambda_handler(event, context):
                 logging.info("Creating %s", mpp.mp_name)
                 create_mpp(mpp, settings["MISSINGS_API"]["token"])
 
+    res = update_counter(settings["MISSINGS_API"]["token"])
+    logging.info("Counter updated with last update at: %s", res["updated_at"])
     logging.info("Lambda execution terminated")
 
 
